@@ -61,7 +61,7 @@ Displays all academic qualifications:
 Download and try the app here:  
 👉 [Portfolio APK (Google Drive Link)](https://your-link-here.com)
 
-*(Replace with your actual APK or Drive link)*
+*(Not added the link yet)*
 
 ---
 
@@ -70,9 +70,8 @@ Download and try the app here:
 **Name:** Eram Murtaza  
 **Location:** Ranchi, Jharkhand  
 **Role:** React Native Developer | Software Developer  
-**Experience:** 2+ years  
-**Email:** eram.murtaza@example.com  
-**GitHub:** [https://github.com/ErmMurtaza](https://github.com/ErmMurtaza)  
+**Experience:** 4+ years  
+
 
 ---
 
