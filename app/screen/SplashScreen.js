@@ -4,14 +4,14 @@ import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
-    const timer = setTimeout(() => navigation.replace("LoginScreen"), 2000);
+    const timer = setTimeout(() => navigation.replace("ProfileScreen"), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Image source={require("../../assets/icloudEMS_logo.png")} style={styles.logo} />
-      <Text style={styles.title}>Keycloak QR Login App</Text>
+      <Image source={require("../assets/dummy_profile.avif")} style={styles.logo} />
+      <Text style={styles.title}>Eram Murtaza Portfolio App</Text>
     </View>
   );
 }

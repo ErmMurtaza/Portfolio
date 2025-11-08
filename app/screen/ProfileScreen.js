@@ -4,98 +4,154 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import Background from "../components/Background";
 import Icon from "react-native-vector-icons/AntDesign";
 import Icons from "react-native-vector-icons/Entypo";
-
+import {
+  MaterialCommunityIcons,
+  Entypo,
+  FontAwesome,
+} from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 import CategoryCard from "../components/CategoryCard";
 
-export default function ProfileScreenScreen({ navigation }) {
+export default function ProfileScreen({ navigation }) {
+    const phoneNumber = "+91XXXXXXXXXX"; // replace with your real number
+    const email = "erammurtaza@gmail.com"; // replace with your email
+    const linkedinUrl = "https://www.linkedin.com/in/eram-murtaza";
+    const gitUrl = "https://github.com/ErmMurtaza";
+
+  const handleCall = () => Linking.openURL(`tel:${phoneNumber}`);
+  const handleEmail = () => Linking.openURL(`mailto:${email}`);
+  const handleLinkedIn = () => Linking.openURL(linkedinUrl);
+  const handleGit = () => Linking.openURL(gitUrl);
   return (
     <Background>
       <View style={styles.header}>
         <View style={styles.headercontainer}>
           <TouchableOpacity
             style={styles.headerCircle}
-            onPress={() => navigation.goBack()}
           >
-            <Icon name="arrowleft" color="#fff" />
+            <Icon name="heart" color="#fff" size={18} />
           </TouchableOpacity>
+
           <Text style={styles.name}>Eram Murtaza</Text>
 
-          <View style={styles.headerCircle}>
-            <Icon name="heart" color="#fff" />
+          <TouchableOpacity
+            style={styles.headerCircle}
+            onPress={handleLinkedIn}
+          >
+            <FontAwesome name="linkedin" color="#fff" size={18} />
+          </TouchableOpacity>
+        </View>
+
+        {/* Avatar and Info */}
+        <View style={styles.profileHeader}>
+          <Avatar.Image
+            source={require("../assets/dummy_profile.avif")}
+            size={85}
+            style={{ backgroundColor: "#fff" }}
+          />
+          <View style={{ marginLeft: 15 }}>
+            <Text style={styles.title}>Full-stack Developer</Text>
+            <Text style={styles.subtitle}>Lexicon Consultants Pvt. Ltd.</Text>
+
+            {/* Contact Row */}
+            <View style={styles.contactRow}>
+              <TouchableOpacity onPress={handleCall} style={styles.contactBtn}>
+                <MaterialCommunityIcons name="phone" size={18} color="#fff" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleEmail} style={styles.contactBtn}>
+                <MaterialCommunityIcons name="email" size={18} color="#fff" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={handleLinkedIn}
+                style={styles.contactBtn}
+              >
+                <FontAwesome name="linkedin" size={18} color="#fff" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleGit} style={styles.contactBtn}>
+                  <MaterialCommunityIcons name="github" size={18} color="#fff" />
+                </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
       <View style={styles.footer}>
-        <View style={styles.logo}>
-          <Avatar.Image
-            source={require("../assets/loginCup.png")} // Replace with your image source
-            size={180}
-          />
-        </View>
-        <Text style={styles.profesional}>Full-stack Developer</Text>
-        <Text style={[styles.profesional, { fontWeight: "300", fontSize: 15 }]}>
-          Lexicon Consultants pvt. ltd.
-        </Text>
-        <View
-          style={[styles.headercontainer, { justifyContent: "space-evenly" }]}
-        >
-          <CategoryCard icon="thumb-up" name="Follow" size={15} />
-          <CategoryCard icon="phone" name="Contact" size={15} />
-        </View>
         <View style={styles.iconHeader}>
-          <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ProfileScreen")}
+          >
             <Icons name="box" size={20} color="#8e603c" />
           </TouchableOpacity>
-          <TouchableOpacity
+         
+          <TouchableOpacity onPress={() => navigation.navigate("Experience")}>
+            <Icons name="edit" size={20} color="grey" />
+          </TouchableOpacity>
+           <TouchableOpacity
             onPress={() => navigation.navigate("EducationScreen")}
           >
             <Icons name="graduation-cap" size={20} color="grey" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Experience")}>
-            <Icons name="edit" size={20} color="grey" />
-          </TouchableOpacity>
         </View>
-        <ScrollView>
-          <Text style={[styles.name, { color: "grey" }]}>EXPERIENCE</Text>
-          <View style={styles.expcontainer}>
-            <Icons name="info-with-circle" size={18} color="#8e603c" />
-            <View style={styles.expctextcont}>
-              <Text style={styles.experience}>Cross Platform Developer</Text>
-              <Text
-                style={[styles.experience, { fontWeight: "300", fontSize: 15 }]}
-              >
-                2022-2023
+        <ScrollView
+          style={styles.container}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Title */}
+          <Text style={styles.sectionTitle}>OBJECTIVE</Text>
+
+          {/* Objective Header */}
+          <View style={styles.expContainer}>
+            <MaterialCommunityIcons
+              name="account-tie-outline"
+              size={20}
+              color="#8e603c"
+              style={{ marginRight: 8 }}
+            />
+            <View style={styles.projectTextContainer}>
+              <Text style={styles.roleTitle}>
+                Software Developer/ Cross Platform Developer
               </Text>
+              <Text style={styles.duration}>2021 - Present</Text>
             </View>
           </View>
 
-          <View style={styles.expcontainer}>
-            <Icons name="info-with-circle" size={18} color="#8e603c" />
-            <View style={styles.expctextcont}>
-              <Text style={styles.experience}>Mobile App Developer</Text>
-              <Text
-                style={[styles.experience, { fontWeight: "300", fontSize: 15 }]}
-              >
-                2022-2023
-              </Text>
-            </View>
-          </View>
+          {/* Objective Text */}
+          <Text style={styles.objectiveText}>
+            Results-driven software developer with 4+ years of experience
+            specializing in CodeIgniter, PHP, and React Native. Proven track
+            record in developing robust web and mobile applications that
+            optimize performance and enhance user experience. My objective is to
+            leverage my skills and experience to contribute to the success of
+            the organization while continuously improving my technical knowledge
+            and staying up-to-date with emerging technologies.
+          </Text>
 
-          <View style={styles.expcontainer}>
-            <Icons name="info-with-circle" size={18} color="#8e603c" />
-            <View style={styles.expctextcont}>
-              <Text style={styles.experience}>Web Designer</Text>
-              <Text
-                style={[styles.experience, { fontWeight: "300", fontSize: 15 }]}
-              >
-                2022-2023
-              </Text>
-            </View>
+          {/* Primary Skills */}
+          <Text style={styles.subTitle}>PRIMARY SKILLS</Text>
+
+          <View style={styles.skillContainer}>
+            {[
+              "React Native",
+              "Redux",
+              "ReactJS",
+              "REST API",
+              "PHP",
+              "CodeIgniter",
+              "MySQL",
+              "JavaScript",
+              "jQuery",
+              "Ajax",
+              "Git",
+            ].map((skill, index) => (
+              <View key={index} style={styles.skillRow}>
+                <Entypo name="dot-single" size={20} color="#8e603c" />
+                <Text style={styles.skillText}>{skill}</Text>
+              </View>
+            ))}
           </View>
         </ScrollView>
       </View>
@@ -105,78 +161,142 @@ export default function ProfileScreenScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
-    flex: 1, // Make the header take up the entire height
     backgroundColor: "#8e603c",
-    // borderBottomEndRadius: 40,
-    // borderBottomLeftRadius: 40,
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingVertical: 25,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
   },
   footer: {
     flex: 3,
     backgroundColor: "#fff",
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-  },
-  logo: {
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 50,
-    width: 50,
-    height: 50,
-    position: "relative",
-    marginTop: -65,
-    // alignSelf: "center",
-    flexDirection: "row",
-    // justifyContent: "center",
-    alignItems: "center",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
   headercontainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   headerCircle: {
-    padding: 10,
+    padding: 8,
     borderWidth: 1,
     borderRadius: 25,
-    alignContent: "center",
     borderColor: "#fff",
   },
-
   name: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     color: "#fff",
   },
-  profesional: {
-    fontSize: 20,
+  profileHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  title: {
+    fontSize: 18,
     fontWeight: "bold",
-    color: "#000",
-    alignSelf: "flex-end",
-    textAlign: "center",
-    width: "50%",
+    color: "#fff",
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#f0e6dc",
+    marginTop: 4,
+  },
+  contactRow: {
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  contactBtn: {
+    backgroundColor: "#a7744b",
+    borderRadius: 20,
+    padding: 8,
+    marginRight: 10,
   },
   iconHeader: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 30,
+
     backgroundColor: "#eeeeee",
     padding: 10,
   },
-  expcontainer: {
-    flexDirection: "row",
+  container: {
+    flex: 1,
+    backgroundColor: "#fafafa",
     padding: 10,
-    //backgroundColor: "pink",
   },
-  expctextcont: {
-    //left:20,
-    width: "100%",
-  },
-  experience: {
+  sectionTitle: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#000",
-    alignContent: "flex-start",
-    left: 20,
+    fontWeight: "700",
+    color: "#444",
+    letterSpacing: 1,
+    marginBottom: 12,
+  },
+  expContainer: {
+    flexDirection: "row",
+    backgroundColor: "#fff",
+    padding: 14,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  projectTextContainer: {
+    flex: 1,
+  },
+  roleTitle: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#8e603c",
+  },
+  duration: {
+    fontSize: 13,
+    color: "#666",
+  },
+  objectiveText: {
+    fontSize: 14,
+    color: "#444",
+    lineHeight: 22,
+    backgroundColor: "#fff",
+    padding: 14,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 2,
+    marginBottom: 20,
+  },
+  subTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+    marginBottom: 8,
+  },
+  skillContainer: {
+    backgroundColor: "#fff",
+    padding: 14,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 2,
+    marginBottom: 30,
+  },
+  skillRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 2,
+  },
+  skillText: {
+    fontSize: 13.5,
+    color: "#444",
   },
 });
