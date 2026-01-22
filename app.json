@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ProfileApp",
-    "slug": "ProfileApp",
+    "name": "PortfolioApp",
+    "slug": "PortfolioApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/app_icon.png",
@@ -13,21 +13,22 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.eram.PortfolioApp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.eram.PortfolioApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-barcode-scanner",
-      "expo-secure-store"
-    ]
+    }
   }
 }

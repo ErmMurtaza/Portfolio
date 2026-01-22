@@ -19,11 +19,9 @@ import { Avatar } from "react-native-paper";
 import CategoryCard from "../components/CategoryCard";
 
 export default function EducationScreen({ navigation }) {
-  
-
-  const phoneNumber = "+91XXXXXXXXXX"; // replace with your real number
-  const email = "erammurtaza@gmail.com"; // replace with your email
-  const linkedinUrl = "https://www.linkedin.com/in/eram-murtaza";
+  const phoneNumber = "+918051510866"; // replace with your real number
+  const email = "eram.murtaza01@gmail.com"; // replace with your email
+  const linkedinUrl = "https://www.linkedin.com/in/eram-murtaza-0b13812a3"; // replace with your LinkedIn
   const gitUrl = "https://github.com/ErmMurtaza";
  
   const handleCall = () => Linking.openURL(`tel:${phoneNumber}`);

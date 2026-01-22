@@ -18,10 +18,14 @@ import { Avatar } from "react-native-paper";
 import CategoryCard from "../components/CategoryCard";
 
 export default function ProfileScreen({ navigation }) {
-    const phoneNumber = "+91XXXXXXXXXX"; // replace with your real number
-    const email = "erammurtaza@gmail.com"; // replace with your email
-    const linkedinUrl = "https://www.linkedin.com/in/eram-murtaza";
-    const gitUrl = "https://github.com/ErmMurtaza";
+  const phoneNumber = "+918051510866"; // replace with your real number
+  const email = "eram.murtaza01@gmail.com"; // replace with your email
+  const linkedinUrl = "https://www.linkedin.com/in/eram-murtaza-0b13812a3"; // replace with your LinkedIn
+  const gitUrl = "https://github.com/ErmMurtaza";
+    // const phoneNumber = "+91XXXXXXXXXX"; // replace with your real number
+    // const email = "erammurtaza@gmail.com"; // replace with your email
+    // const linkedinUrl = "https://www.linkedin.com/in/eram-murtaza";
+    // const gitUrl = "https://github.com/ErmMurtaza";
 
   const handleCall = () => Linking.openURL(`tel:${phoneNumber}`);
   const handleEmail = () => Linking.openURL(`mailto:${email}`);
@@ -121,7 +125,7 @@ export default function ProfileScreen({ navigation }) {
 
           {/* Objective Text */}
           <Text style={styles.objectiveText}>
-            Results-driven software developer with 4+ years of experience
+            Results-driven software developer with 5+ years of experience
             specializing in CodeIgniter, PHP, and React Native. Proven track
             record in developing robust web and mobile applications that
             optimize performance and enhance user experience. My objective is to
