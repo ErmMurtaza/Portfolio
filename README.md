@@ -42,8 +42,7 @@ Software: APK (React Native + Expo)
 OS: Windows, macOS, Linux
 
 📲 APK Demo
-## Screenshots
-![All Screen](app/assets/Screens.jpg)
+
 
 👩‍💻 Developer
 Name: Eram Murtaza
