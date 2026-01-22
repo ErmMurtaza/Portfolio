@@ -42,13 +42,8 @@ Software: APK (React Native + Expo)
 OS: Windows, macOS, Linux
 
 📲 APK Demo
-Download and try the app here:
-👉 Portfolio APK (Google Drive Link)
 ## Screenshots
-
 ![All Screen](app/assets/Screens.jpg)
-
-(Not added the link yet)
 
 👩‍💻 Developer
 Name: Eram Murtaza
